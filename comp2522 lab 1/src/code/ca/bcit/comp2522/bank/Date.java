@@ -17,6 +17,8 @@ public class Date {
     private final int month;
     private final int day;
     private final int CURRENT_YEAR;
+    private final int numOfSix;
+    private final int Six;
     public Date(final int year, final int month, final int day)
     {
         validateYear(year);
@@ -46,8 +48,15 @@ public class Date {
 
         return null;
     }
-    private void getDayOfTheWeek() {
+    private void getDayOfTheWeek(final int year, final int month, final int day) {
+        int placeHolderValue;
+        final int numOf12;
 
+        if(year <= 2000 && 1800 <= year) {
+            placeHolderValue = year - 1900;
+            numOf12 = placeHolderValue/12;
+            placeHolderValue = placeHolderValue - 7 * numOf12;
+        }
     }
 
 
