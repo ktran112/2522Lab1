@@ -9,91 +9,128 @@ public class Name {
 
     private final String firstName;
     private final String lastName;
+    private final char firstInitial;
+    private final char lastInitial;
+
+    /** The max name length **/
     private final int MAX_NAME_LEN = 45;
 
-public Name(final String firstName, final String lastName)
-{
-
-
-    // Checks if either the first or last names are "admin".
-    if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin"))
+    /**
+     * This constructs the Name object. Both first and last names must be neither null nor blank.
+     * @param firstName the first name
+     * @param lastName the last name
+     */
+    public Name(final String firstName, final String lastName)
     {
-        throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin
+
+        StringBuilder firstNameFirstLetterCapitalize; // This will capitalize the first letter of the first name.
+        StringBuilder lastNameFirstLetterCapitalize; // This will capitalize the first letter of the last name.
+
+        firstNameFirstLetterCapitalize = new StringBuilder();
+        lastNameFirstLetterCapitalize = new StringBuilder();
+
+        // Checks if either the first or last names are "admin".
+        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin"))
+        {
+            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
+        }
+
+        // Checks if first name is not null or empty.
+        if ((firstName != null && !firstName.isEmpty() && firstName.length() < MAX_NAME_LEN))
+        {
+
+            this.firstInitial = Character.toUpperCase(firstName.charAt(0)); // Uppercases first letter.
+
+            // Capitalizes the first letter of the first name.
+            firstNameFirstLetterCapitalize.append(firstName.toLowerCase());
+            firstNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
+
+            this.firstName = firstNameFirstLetterCapitalize.toString(); // Initializes first name with proper capitalization.
+
+        } else {
+            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
+        }
+
+        // Checks if last name is not null or empty.
+        if ((lastName != null && !lastName.isEmpty() && lastName.length() < MAX_NAME_LEN))
+        {
+            this.lastInitial = Character.toUpperCase(lastName.charAt(0)); // Uppercases first letter.
+
+            // Capitalizes the first letter of the last name.
+            lastNameFirstLetterCapitalize.append(lastName.toLowerCase());
+            lastNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
+
+            this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
+
+        } else {
+            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
+        }
     }
 
-    // Checks if first name is not null or empty.
-    if ((firstName != null && !firstName.isEmpty() && firstName.length() < MAX_NAME_LEN))
+
+    /**
+     * Returns the first name of the full name.
+     * @return the first name
+     */
+    public final String getFirst()
     {
-        this.firstName = firstName;
-    } else {
-        throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty
+        return this.firstName;
     }
 
-    // Checks if last name is not null or empty.
-    if ((lastName != null && !lastName.isEmpty() && lastName.length() < MAX_NAME_LEN))
+
+    /**
+     * Returns the last name of the full name.
+     * @return the last name
+     */
+    public final String getLast()
     {
-        this.lastName = lastName;
-    } else {
-        throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty
+        return this.lastName;
     }
 
-}
 
+    /**
+     * Forms the initials of the given name.
+     * @return the initials of the full name
+     */
+    public final String getInitial()
+    {
+        final StringBuilder initialParser; // This will form the "A.B." format.
+        final String initial;
 
-/*
- * Returns the first name of the full name.
- * @return this.first Name the first name
- */
-public final String getFirst()
-{
-    return this.firstName;
-}
+        initialParser = new StringBuilder();
 
+        // Builds the "A.B." format for the initial.
+        initialParser.append(this.firstInitial);
+        initialParser.append('.');
+        initialParser.append(this.lastInitial);
+        initialParser.append('.');
 
-/*
- * Returns the last name of the full name.
- * @return this.last Name the last name
- */
-public final String getLast()
-{
-    return this.lastName;
-}
+        initial = initialParser.toString();
 
+        return initial;
+    }
 
-/*
- * Forms the initials of the given name.
- * @return this.last Name the last name
- */
-public final String getInitial()
-{
-    char firstInitial;
-    char lastInitial;
-    String initial;
+    /**
+     * Forms the initials of the given name.
+     * @return the full name reversed
+     */
+    public final String getReverseName()
+    {
+        final StringBuilder nameReverser; // This will reverse the full name.
+        final String reversedName;
 
-    firstInitial = Character.toUpperCase(this.firstName.charAt(0));
-    lastInitial = Character.toUpperCase(this.lastName.charAt(0));
+        // Forms the full name.
+        nameReverser = new StringBuilder();
+        nameReverser.append(this.firstName);
+        nameReverser.append(" ");
+        nameReverser.append(this.firstName);
 
-    initial = "" + firstInitial + lastInitial;
+        nameReverser.reverse(); // Reverses the name.
 
-    return initial;
-}
+        reversedName = nameReverser.toString();
 
+        return reversedName;
+    }
 
-public final String getReverseName()
-{
-    StringBuilder fullName;
-    String reversedName;
-
-    fullName = new StringBuilder();
-    fullName.append(this.firstName);
-    fullName.append(this.firstName);
-
-    fullName.reverse();
-
-    reversedName = fullName.toString();
-
-    return reversedName;
-
-}
 
 }
