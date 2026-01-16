@@ -23,10 +23,20 @@ public class Date
     private final int year1700 = 1700;
     final int twelve = 12;
     final int four = 4;
+
     private int step1;
     private int step2;
     private int monthCode;
     private final int numOfDaysInWeek = 7;
+
+    private int maximumDayDate;
+
+    /**
+     * Constructor for the date class.
+     * @param year is the year of the date.
+     * @param month is the month of the date.
+     * @param day is the day of the date.
+     */
     public Date(final int year, final int month, final int day)
     {
         validateYear(year);
@@ -54,12 +64,14 @@ public class Date
     {
         return year;
     }
+
     private String getYYYYMMDD()
     {
         String YYYYMMDD;
-
+        year += 3;
         return null;
     }
+
     private int getDayOfTheWeek(final int year, final int month, final int day)
     {
         switch (month)
@@ -74,6 +86,7 @@ public class Date
             case 11 -> monthCode = 4;
         }
 
+        //If it's a leap year, and month is jan or feb, add 6.
         if ( (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 )
         {
             if (month == 1 || month == 2)
@@ -82,17 +95,16 @@ public class Date
             }
         }
 
+        //Add two for the 1800 years.
         if (year >= year1700 && year <= year1900)
         {
             dayOfTheWeek += 2;
         }
-        if (year >= year2000 && year <= year2100)
-        {
-            dayOfTheWeek += 2;
-        }
 
-        if(year <= year2000 && year1800 <= year)
-        {
+        //Add six for the 2000 years.
+        if (year > year1900 && year < year2100) {
+            dayOfTheWeek += 6;
+        }
 
             numOf12 = (year - year1900)/monthsInYear;
             step1 = dayOfTheWeek - twelve*numOf12;
@@ -104,21 +116,49 @@ public class Date
             dayOfTheWeek %=numOfDaysInWeek;
 
             return dayOfTheWeek;
-        }
     }
 
 
     private void validateYear(final int year)
     {
-
+        if(!(year >= year1800) && !(year <= CURRENT_YEAR))
+        {
+            throw new illegalArguemntException("Illegal year: " + year);
+        }
     }
-    private void validateMonth(final int year)
+    private void validateMonth(final int month)
+    {
+        if ( !(month >= 1) || !(month <= 12))
+        {
+            throw new illegalArgrumentException("Illegal month: " + month);
+        }
+    }
+    private void validateDay(final int day)
     {
 
-    }
-    private void validateDay(final int year)
-    {
 
+        switch (month)
+        {
+            case 1,3,5,7,8,10,12 -> maximumDayDate = 31; //31 days in month
+            case 4,6,9,11 -> maximumDayDate = 30 ; //with 30 days in the month
+            case 2 ->
+            {
+                //If it's a leap year, and month is jan or feb, change maximum date.
+                if ( (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 )
+                {
+                    maximumDayDate = 28;
+                }
+                else
+                {
+                    maximumDayDate = 29;
+                }
+            }
+        }
+
+        if (day < 1 || day > maximumDayDate)
+        {
+            throw new illegalArgumentException("Illegal day: " + day);
+        }
     }
 }
 
