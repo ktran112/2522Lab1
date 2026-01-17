@@ -7,21 +7,26 @@ package ca.bcit.comp2522.bank;
  */
 public class Name {
 
+
     private final String firstName;
     private final String lastName;
     private final char firstInitial;
     private final char lastInitial;
 
+
     /** The max name length **/
     private final int MAX_NAME_LEN = 45;
 
+
     /**
-     * This constructs the Name object. Both first and last names must be neither null nor blank.
+     * This constructs the Name object. Both first and last names must be neither null nor blank nor longer than 45 characters.
      * @param firstName the first name
      * @param lastName the last name
      */
     public Name(final String firstName, final String lastName)
     {
+
+        validateFullName(firstName, lastName); // Checks if name violates constraints.
 
         StringBuilder firstNameFirstLetterCapitalize; // This will capitalize the first letter of the first name.
         StringBuilder lastNameFirstLetterCapitalize; // This will capitalize the first letter of the last name.
@@ -29,42 +34,22 @@ public class Name {
         firstNameFirstLetterCapitalize = new StringBuilder();
         lastNameFirstLetterCapitalize = new StringBuilder();
 
-        // Checks if either the first or last names are "admin".
-        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin"))
-        {
-            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
-        }
+        this.firstInitial = Character.toUpperCase(firstName.charAt(0)); // Uppercases first letter.
 
-        // Checks if first name is not null or empty.
-        if ((firstName != null && !firstName.isEmpty() && firstName.length() < MAX_NAME_LEN))
-        {
+        // Capitalizes the first letter of the first name.
+        firstNameFirstLetterCapitalize.append(firstName.toLowerCase());
+        firstNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
 
-            this.firstInitial = Character.toUpperCase(firstName.charAt(0)); // Uppercases first letter.
+        this.firstName = firstNameFirstLetterCapitalize.toString(); // Initializes first name with proper capitalization.
 
-            // Capitalizes the first letter of the first name.
-            firstNameFirstLetterCapitalize.append(firstName.toLowerCase());
-            firstNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
+        this.lastInitial = Character.toUpperCase(lastName.charAt(0)); // Uppercases first letter.
 
-            this.firstName = firstNameFirstLetterCapitalize.toString(); // Initializes first name with proper capitalization.
+        // Capitalizes the first letter of the last name.
+        lastNameFirstLetterCapitalize.append(lastName.toLowerCase());
+        lastNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
 
-        } else {
-            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
-        }
+        this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
 
-        // Checks if last name is not null or empty.
-        if ((lastName != null && !lastName.isEmpty() && lastName.length() < MAX_NAME_LEN))
-        {
-            this.lastInitial = Character.toUpperCase(lastName.charAt(0)); // Uppercases first letter.
-
-            // Capitalizes the first letter of the last name.
-            lastNameFirstLetterCapitalize.append(lastName.toLowerCase());
-            lastNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
-
-            this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
-
-        } else {
-            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
-        }
     }
 
 
@@ -110,6 +95,7 @@ public class Name {
         return initial;
     }
 
+
     /**
      * Forms the initials of the given name.
      * @return the full name reversed
@@ -132,5 +118,32 @@ public class Name {
         return reversedName;
     }
 
+
+    /* Validator method for both the first and last name.
+     * Constraints
+     * - Cannot have the name "admin" for either the first or last name
+     * - Cannot be null for either the first or last name
+     * - Cannot have empty name (empty argument)
+     * - Cannot have a name longer then 45 characters
+     */
+    private final void validateFullName(String firstName, String lastName)
+    {
+
+        // Checks if either the first or last names are "admin".
+        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin")) {
+            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
+        }
+
+        // Checks if first name is not null or empty.
+        if ((firstName == null || firstName.isEmpty() || firstName.length() > MAX_NAME_LEN)) {
+            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
+        }
+
+        // Checks if last name is not null or empty.
+        if ((lastName == null || lastName.isEmpty() || lastName.length() > MAX_NAME_LEN)) {
+            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
+        }
+
+    }
 
 }
