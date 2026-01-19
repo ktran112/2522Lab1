@@ -80,6 +80,14 @@ public class BankClient
         return alive;
     }
 
+    /**
+     * Provides the Name object of the BankClient class.
+     * @return full name
+     */
+    public final Name getName()
+    {
+        return this.fullName;
+    }
 
     /**
      * Creates a statement regarding the client's name, mortality status, and signup date.
