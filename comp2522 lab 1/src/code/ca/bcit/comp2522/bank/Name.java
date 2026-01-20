@@ -169,6 +169,31 @@ public class Name {
         return reversedName;
     }
 
+    /**
+     * Produces a detailed string regarding the name, including first and last name, and its initials.
+     * @return details
+     */
+    public final String getDetails()
+    {
+        StringBuilder detailParser;
+        String firstName;
+        String lastName;
+        String firstInitial;
+        String lastInitial;
+
+        detailParser = new StringBuilder();
+        firstName = "First Name: " + this.firstName;
+        lastName = "\nLast Name: " + this.lastName;
+        firstInitial = "\nFirst Initial: " + this.firstInitial;
+        lastInitial = "\nLast Initial: " + this.lastInitial;
+
+        detailParser.append(firstName);
+        detailParser.append(lastName);
+        detailParser.append(firstInitial);
+        detailParser.append(lastInitial);
+
+        return detailParser.toString();
+    }
 
 
 }

@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d07d8dc9-e78c-48c0-a49e-c99c2b664753" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2522Lab1/ca/bcit/comp2522/bank/Name.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2522Lab1/ca/bcit/comp2522/bank/Name.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +46,10 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "kiet3",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kiet_/Documents/MEGA/2Term/OOPJava/Projects/HomeUseLAB1/2522Lab1"
+    "last_opened_file_path": "C:/Users/Kiet/Documents/MEGA/2Term/OOPJava/lab1/2522Lab1"
   }
 }]]></component>
   <component name="RunManager">
@@ -71,13 +72,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d07d8dc9-e78c-48c0-a49e-c99c2b664753" name="Changes" comment="" />
@@ -87,16 +81,5 @@
       <updated>1768360648756</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java</url>
-          <line>2</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

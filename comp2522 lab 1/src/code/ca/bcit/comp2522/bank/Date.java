@@ -2,7 +2,7 @@ package ca.bcit.comp2522.bank;
 
 /**
  * Represents dates from the Gregorian calendar, including the name of the weekday and date constraints.
- * @author Kiet Tran
+ * @author Umanga Bagai and Kiet Tran
  * @version 1.0
  */
 
@@ -98,7 +98,7 @@ public class Date
      * @param month the month
      * @param day the day
      */
-    public Date(int year, int month, int day)
+    public Date(final int year, final int month, final int day)
     {
         validateYear(year); // Year cannot be lesser than MIN_YEAR and greater than CURRENT_YEAR.
         validateMonth(month); // Month cannot be lesser than MIN_MONTH and greater than CURRENT_MONTH.
@@ -110,7 +110,7 @@ public class Date
     }
 
 
-    private final void validateYear(int year)
+    private final void validateYear(final int year)
     {
         if (year < MIN_YEAR ||
             year > CURRENT_YEAR)
@@ -121,7 +121,7 @@ public class Date
     }
 
 
-    private final void validateMonth(int month)
+    private final void validateMonth(final int month)
     {
         if (month < MIN_MONTH ||
             month > MAX_MONTH)
@@ -132,7 +132,7 @@ public class Date
     }
 
 
-    private final void validateDay(int day)
+    private final void validateDay(final int day)
     {
         if (day < MIN_DAY || // Checks if day is lesser than the minimum possible day
             isStandardMonth() && day > MAX_DAY_STANDARD || // Checks if the month is standard and if the day is greater than the possible max
@@ -309,22 +309,28 @@ public class Date
      * Provides a string version of the full date in YYYY-MM-DD format
      * @return formatted date
      */
-    public final String getYYYYMMDD()
+    public String getYYYYMMDD()
     {
-        final StringBuilder dateParser;
-        final String fullDate;
+        String YYYYMMDD;
+        String MM;
+        String DD;
+        if (month < 10)
+        {
+            MM = "0" + month;
 
-        dateParser = new StringBuilder();
+        } else {
+            MM = "" + month;
+        }
 
-        dateParser.append(this.year);
-        dateParser.append("-");
-        dateParser.append(this.month);
-        dateParser.append("-");
-        dateParser.append(this.day);
-
-        fullDate = dateParser.toString();
-
-        return fullDate;
+        if (day < 10)
+        {
+            DD = "0" + day;
+        }
+        else {
+            DD = "" + day;
+        }
+        YYYYMMDD = year + "-" + MM + "-" + DD;
+        return YYYYMMDD;
     }
 
 
