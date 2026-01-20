@@ -63,6 +63,46 @@ public class BankClient
 
 
     /**
+     * Provides the Name object.
+     * @return Name object
+     */
+    public final Name getName()
+    {
+        return this.fullName;
+    }
+
+
+    /**
+     * Provides the Date object of the death date.
+     * @return death date
+     */
+    public final Date getDeathDate()
+    {
+        return this.deathDate;
+    }
+
+
+    /**
+     * Provides the Date object of the signup date.
+     * @return signup date
+     */
+    public final Date getSignupDate()
+    {
+        return this.signupDate;
+    }
+
+
+    /**
+     * Provides the client ID.
+     * @return client ID
+     */
+    public final String getClientID()
+    {
+        return this.clientID;
+    }
+
+
+    /**
      * Checks whether the client is still alive.
      * @return alive status (true or false)
      */
