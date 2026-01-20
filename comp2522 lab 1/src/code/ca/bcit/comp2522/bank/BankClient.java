@@ -29,14 +29,18 @@ public class BankClient
      * @param signupDate date of signup
      * @param clientID the ID that differentiates clients
      */
-    public BankClient(final Name fullName, final Date birthDate, final Date deathDate, final Date signupDate, final String clientID)
+    public BankClient(final Name fullName,
+                      final Date birthDate,
+                      final Date deathDate,
+                      final Date signupDate,
+                      final String clientID)
     {
 
         // Validator methods.
         validateFullName(fullName); // Cannot be null
         validateBirthDate(birthDate); // Cannot be null
         validateSignupDate(signupDate); // Cannot be null
-        validateClientID(clientID); // Cannot be null or outside the bounds between 6 and 7 (inclusive)
+        validateClientID(clientID); // Cannot be null or outside the bounds between MIN_CHARACTER_ID and MAX_CHARACTER ID (inclusive)
 
         // Initialization after validation is successful.
         this.fullName = fullName;
@@ -49,6 +53,83 @@ public class BankClient
 
     }
 
+
+    /* Validator method for full name.
+     * Constraints
+     * - Cannot be null
+     */
+    private final void validateFullName(Name fullName)
+    {
+
+        // Checks if the name of the client is null
+        if (fullName == null)
+        {
+            throw new IllegalArgumentException("Name is null"); // If the name is null, then an error is thrown
+        }
+
+    }
+
+
+    /* Validator method for birthdate.
+     * Constraints
+     * - Cannot be null
+     */
+    private final void validateBirthDate(Date birthDate)
+    {
+
+        // Checks if the birthdate of the client is null
+        if (birthDate == null)
+
+        {
+
+            throw new IllegalArgumentException("Birth Date is null"); // If the birthdate is null, then an error is thrown
+
+        }
+
+    }
+
+
+    /* Validator method for client ID.
+     * Constraints
+     * - Cannot be null
+     * - Cannot be lesser than 6
+     * - Cannot be greater than 7
+     */
+    private final void validateClientID(String clientID)
+    {
+
+        // Checks if the client ID is null or if it does not follow character amount restrictions
+        if (clientID == null || clientID.length() < MIN_CHARACTER_ID || clientID.length() > MAX_CHARACTER_ID)
+
+        {
+
+            throw new IllegalArgumentException("Client ID is not within the required length or is null"); // If the client ID is either not the correct length or null, then an error is thrown
+
+        }
+
+    }
+
+
+    /*
+     * Validator method for signup.
+     * Constraints
+     * - Cannot be null
+     */
+    private final void validateSignupDate(Date signupDate)
+    {
+
+        // Checks if the signup date is null
+        if (signupDate == null)
+
+        {
+
+            throw new IllegalArgumentException("Signup date is null"); // If the signup date is null, then an error is thrown
+
+        }
+
+    }
+
+
     /**
      * Alternative constructor for BankClient object that omits the death date
      * @param fullName first and last name
@@ -56,9 +137,14 @@ public class BankClient
      * @param signupDate date of signup
      * @param clientID the ID that differentiates clients
      */
-    public BankClient(final Name fullName, final Date birthDate, final Date signupDate, final String clientID)
+    public BankClient(final Name fullName,
+                      final Date birthDate,
+                      final Date signupDate,
+                      final String clientID)
     {
+
         this(fullName, birthDate, null, signupDate, clientID);
+
     }
 
 
@@ -110,11 +196,17 @@ public class BankClient
     {
         final boolean alive;
 
-        if (this.deathDate == null) {
-            alive = true;
-        } else
+        if (this.deathDate == null)
         {
+
+            alive = true;
+
+        } else
+
+        {
+
             alive = false;
+            
         }
 
         return alive;
@@ -126,6 +218,7 @@ public class BankClient
      * @return full statement
      */
     public final String getDetails() {
+
         final StringBuilder statementParser;
         final String clientIDStatement;
         final String mortalityStatement;
@@ -135,15 +228,19 @@ public class BankClient
         clientIDStatement = " client " + this.clientID;
 
         if (isAlive()) {
+
             mortalityStatement = " (alive) ";
+
         } else {
+
             mortalityStatement = " (died on " + this.deathDate.toString() + ") ";
+
         }
 
         signupStatement = "joined the bank on " + this.signupDate.toString();
 
         statementParser = new StringBuilder();
-        statementParser.append(this.fullName);
+        statementParser.append(this.fullName.getFullName());
         statementParser.append(clientIDStatement);
         statementParser.append(mortalityStatement);
         statementParser.append(signupStatement);
@@ -189,71 +286,6 @@ public class BankClient
     }
 
  */
-    }
-
-
-    /* Validator method for full name.
-     * Constraints
-     * - Cannot be null
-     */
-    private final void validateFullName(Name fullName)
-    {
-
-        // Checks if the name of the client is null
-        if (fullName == null)
-        {
-            throw new IllegalArgumentException("Name is null"); // If the name is null, then an error is thrown
-        }
-
-    }
-
-
-    /* Validator method for birthdate.
-     * Constraints
-     * - Cannot be null
-     */
-    private final void validateBirthDate(Date birthDate)
-    {
-
-        // Checks if the birthdate of the client is null
-        if (birthDate == null)
-        {
-            throw new IllegalArgumentException("Birth Date is null"); // If the birthdate is null, then an error is thrown
-        }
-
-    }
-
-
-    /* Validator method for client ID.
-     * Constraints
-     * - Cannot be null
-     * - Cannot be lesser than 6
-     * - Cannot be greater than 7
-     */
-    private final void validateClientID(String clientID)
-    {
-
-        // Checks if the client ID is null or if it does not follow character amount restrictions
-        if (clientID == null || clientID.length() < MIN_CHARACTER_ID || clientID.length() > MAX_CHARACTER_ID)
-        {
-            throw new IllegalArgumentException("Client ID is not within the required length or is null"); // If the client ID is either not the correct length or null, then an error is thrown
-        }
-
-    }
-
-    /* Validator method for signup.
-     * Constraints
-     * - Cannot be null
-     */
-    private final void validateSignupDate(Date signupDate)
-    {
-
-        // Checks if the signup date is null
-        if (signupDate == null)
-        {
-            throw new IllegalArgumentException("Signup date is null"); // If the signup date is null, then an error is thrown
-        }
-
     }
 
 }

@@ -13,8 +13,6 @@ public class Name {
     private final char firstInitial;
     private final char lastInitial;
 
-
-    /** The max name length **/
     private final int MAX_NAME_LEN = 45;
 
 
@@ -23,7 +21,8 @@ public class Name {
      * @param firstName the first name
      * @param lastName the last name
      */
-    public Name(final String firstName, final String lastName)
+    public Name(final String firstName,
+                final String lastName)
     {
 
         validateFullName(firstName, lastName); // Checks if name violates constraints.
@@ -50,6 +49,45 @@ public class Name {
 
         this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
 
+    }
+
+
+    /* Validator method for both the first and last name.
+     * Constraints
+     * - Cannot have the name "admin" for either the first or last name
+     * - Cannot be null for either the first or last name
+     * - Cannot have empty name (empty argument)
+     * - Cannot have a name longer then 45 characters
+     */
+    private final void validateFullName(final String firstName,
+                                        final  String lastName)
+    {
+
+        // Checks if either the first or last names are "admin".
+        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin")) {
+            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
+        }
+
+        // Checks if first name is not null or empty.
+        if ((firstName == null || firstName.isEmpty() || firstName.length() > MAX_NAME_LEN)) {
+            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
+        }
+
+        // Checks if last name is not null or empty.
+        if ((lastName == null || lastName.isEmpty() || lastName.length() > MAX_NAME_LEN)) {
+            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
+        }
+
+    }
+
+
+    /**
+     * Returns the full name.
+     * @return the full name
+     */
+    public final String getFullName()
+    {
+        return firstName + " " + lastName;
     }
 
 
@@ -119,31 +157,5 @@ public class Name {
     }
 
 
-    /* Validator method for both the first and last name.
-     * Constraints
-     * - Cannot have the name "admin" for either the first or last name
-     * - Cannot be null for either the first or last name
-     * - Cannot have empty name (empty argument)
-     * - Cannot have a name longer then 45 characters
-     */
-    private final void validateFullName(String firstName, String lastName)
-    {
-
-        // Checks if either the first or last names are "admin".
-        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin")) {
-            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
-        }
-
-        // Checks if first name is not null or empty.
-        if ((firstName == null || firstName.isEmpty() || firstName.length() > MAX_NAME_LEN)) {
-            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
-        }
-
-        // Checks if last name is not null or empty.
-        if ((lastName == null || lastName.isEmpty() || lastName.length() > MAX_NAME_LEN)) {
-            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
-        }
-
-    }
 
 }
