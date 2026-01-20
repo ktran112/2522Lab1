@@ -63,18 +63,31 @@ public class Name {
                                         final  String lastName)
     {
 
-        // Checks if either the first or last names are "admin".
-        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin")) {
-            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
+        // Checks if either the first or last names are "admin" or "administrator".
+        if (firstName.equalsIgnoreCase("admin") ||
+            lastName.equalsIgnoreCase("admin") ||
+            firstName.equalsIgnoreCase("administrator")||
+            lastName.equalsIgnoreCase("administrator"))
+
+        {
+            throw new IllegalArgumentException("Name cannot be admin or administrator"); // Throws error if either name is admin or administrator.
         }
 
         // Checks if first name is not null or empty.
-        if ((firstName == null || firstName.isEmpty() || firstName.length() > MAX_NAME_LEN)) {
+        if (firstName == null ||
+            firstName.isEmpty() ||
+            firstName.length() > MAX_NAME_LEN)
+
+        {
             throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
         }
 
         // Checks if last name is not null or empty.
-        if ((lastName == null || lastName.isEmpty() || lastName.length() > MAX_NAME_LEN)) {
+        if (lastName == null ||
+            lastName.isEmpty() ||
+            lastName.length() > MAX_NAME_LEN)
+
+        {
             throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
         }
 

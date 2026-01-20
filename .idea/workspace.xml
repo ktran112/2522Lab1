@@ -7,6 +7,7 @@
     <list default="true" id="d07d8dc9-e78c-48c0-a49e-c99c2b664753" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" afterDir="false" />
     </list>
@@ -18,18 +19,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ktran112"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ktran112&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ktran112/2522Lab1.git",
-    "accountId": "5f3ae577-cc27-4799-8360-fcb138ff737c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ktran112/2522Lab1.git&quot;,
+    &quot;accountId&quot;: &quot;5f3ae577-cc27-4799-8360-fcb138ff737c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -40,15 +41,43 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "kiet3",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Kiet/Documents/MEGA/2Term/OOPJava/Projects/LAB1USETHIS/2522Lab1"
+    "last_opened_file_path": "C:/Users/kiet_/Documents/MEGA/2Term/OOPJava/Projects/HomeUseLAB1/2522Lab1"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.bcit.comp2522.bank.Main" />
+      <module name="2522Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.bcit.comp2522.bank.temp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d07d8dc9-e78c-48c0-a49e-c99c2b664753" name="Changes" comment="" />
