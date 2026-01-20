@@ -6,9 +6,9 @@ public class BankAccount {
     private final int pin;
 
     /** Represents the minimum of characters a BankAccount can have. */
-    private final int ACCOUNT_NUM_LENGTH_6 = 6;
+    private final int MIN_ACCOUNT_NUM_LENGTH = 6;
     /** Represents the maximum of characters a BankAccount can have. */
-    private final int ACCOUNT_NUM_LENGTH_7 = 7;
+    private final int MAX_ACCOUNT_NUM_LENGTH = 7;
 
     BankClient client;
     Date accountOpened;
@@ -20,6 +20,7 @@ public class BankAccount {
     public BankAccount(final BankClient client, final String accountNumber, final Date accountOpened, final Date accountClosed, final int pin)
     {
         this.client = client;
+
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
         this.pin = pin;
@@ -72,7 +73,7 @@ public class BankAccount {
         final String accountCloseDate;
 
         clientName = client.getDetails();
-        details = client.fullName
+
         // amount usd. account number. opened date, closed date.
         //need a getDetails method that retunrs a string excatly in the format:
         // "Albert Einstein had $900 USD in account #abc123 which he
@@ -100,7 +101,9 @@ public class BankAccount {
 
     private void validateAccountNumber(final String accountNumber)
     {
-        if()
+        if(accountNumber.length() ==) {
+
+        }
     }
 
     private void validateBankClient(BankClient client)
