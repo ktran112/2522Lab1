@@ -209,29 +209,13 @@ public class BankClient
         final String fullName;
         final String clientIDStatement;
         final String mortalityStatement;
-        final String deathDate;
-        final String signupDate;
         final String signupStatement;
         final String fullStatement;
 
+        statementParser = new StringBuilder();
+
+
         fullName = this.fullName.getFullName();
-
-
-        deathDate = this.deathDate.getDayOfTheWeek()
-                    + ", "
-                    + this.deathDate.getMonth()
-                    + " "
-                    + this.deathDate.getDay()
-                    + this.deathDate.getYear();
-
-
-        signupDate = this.signupDate.getDayOfTheWeek()
-                    + ", "
-                    + this.signupDate.getMonth()
-                    + " "
-                    + this.signupDate.getDay()
-                    + this.signupDate.getYear();
-
 
         clientIDStatement = " client " + this.clientID;
 
@@ -244,13 +228,11 @@ public class BankClient
         else
 
         {
-            mortalityStatement = " (died on " + deathDate + ") ";
+            mortalityStatement = " (died on " + this.deathDate.getFormattedDate() + ") ";
         }
 
+        signupStatement = "joined the bank on " + this.signupDate.getFormattedDate();
 
-        signupStatement = "joined the bank on " + signupDate;
-
-        statementParser = new StringBuilder();
         statementParser.append(fullName);
         statementParser.append(clientIDStatement);
         statementParser.append(mortalityStatement);
@@ -259,7 +241,6 @@ public class BankClient
         fullStatement = statementParser.toString();
 
         return fullStatement;
-
 
  /*
 

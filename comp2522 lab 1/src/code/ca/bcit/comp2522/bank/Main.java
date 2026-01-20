@@ -57,7 +57,6 @@ public class Main {
         nelsonMandelaAccount = new BankAccount(nelsonMandelaClient,
                 "654321",
                 new Date(1994, 5, 10),
-                null,
                 4664);
 
         fridaKahloAccount = new BankAccount(fridaKahloClient,
@@ -69,7 +68,6 @@ public class Main {
         jackieChanAccount = new BankAccount(jackieChanClient,
                 "chan789",
                 new Date(1980, 10, 1),
-                null,
                 1954);
 
 // Albert Einstein
@@ -80,6 +78,7 @@ public class Main {
         System.out.println(albertEinsteinClient.getDetails());
         albertEinsteinAccount.deposit(1000, 3141);
         albertEinsteinAccount.withdraw(100, 3141);
+        System.out.println(albertEinsteinAccount.getDetails());
 
 // Nelson Mandela
         System.out.println(nelsonMandela.getInitial());
@@ -89,6 +88,8 @@ public class Main {
         System.out.println(nelsonMandelaClient.getDetails());
         nelsonMandelaAccount.deposit(2000, 4664);
         nelsonMandelaAccount.withdraw(200, 4664);
+        System.out.println(nelsonMandelaAccount.getDetails());
+
 
 // Frida Kahlo
         System.out.println(fridaKahlo.getInitial());
@@ -98,6 +99,7 @@ public class Main {
         System.out.println(fridaKahloClient.getDetails());
         fridaKahloAccount.deposit(500, 1907);
         fridaKahloAccount.withdraw(50, 1907);
+        System.out.println(fridaKahloAccount.getDetails());
 
 // Jackie Chan
         System.out.println(jackieChan.getInitial());
@@ -107,6 +109,7 @@ public class Main {
         System.out.println(jackieChanClient.getDetails());
         jackieChanAccount.deposit(3000, 1954);
         jackieChanAccount.withdraw(500, 1954);
+        System.out.println(jackieChanAccount.getDetails());
 
     }
 

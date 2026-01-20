@@ -38,10 +38,15 @@ public class BankAccount {
 
         validateBankClient(client);
         validateAccountNumber(accountNumber);
-        validateAccountOpened(accountOpened, accountClosed);
         validateAccountClosed(accountClosed, accountOpened);
+        validateAccountOpened(accountOpened, accountClosed);
         validatePin(pin);
 
+    }
+
+    public BankAccount(final BankClient client, final String accountNumber, final Date accountOpened, final int pin)
+    {
+        this(client, accountNumber, accountOpened, null, pin);
     }
 
 
@@ -69,13 +74,7 @@ public class BankAccount {
      * @param accountOpened is the date that the account was opened.
      */
     private void validateAccountClosed(Date accountClosed, Date accountOpened) {
-        if (accountClosed == null) {
-            throw new IllegalArgumentException("accountClosed date cannot be null");
-        }
-        if (accountOpened == null) {
-            throw new IllegalArgumentException("accountOpened date cannot be null");
-        }
-        if (accountClosed.getYYYYMMDD().compareTo(accountOpened.getYYYYMMDD()) < 0) {
+        if (accountClosed != null && accountClosed.getYYYYMMDD().compareTo(accountOpened.getYYYYMMDD()) < 0) {
             throw new IllegalArgumentException("Account closed before account opened. Invalid dates.");
         }
     }
@@ -91,8 +90,8 @@ public class BankAccount {
     private void validateAccountOpened(Date accountOpened, Date accountClosed) {
         if (accountOpened == null) {
             throw new IllegalArgumentException("accountOpened date cannot be null");
-        }
-        if (accountOpened.getYYYYMMDD().compareTo(accountClosed.getYYYYMMDD()) > 0) {
+        } else
+        if (accountClosed != null && accountOpened.getYYYYMMDD().compareTo(accountClosed.getYYYYMMDD()) > 0) {
             throw new IllegalArgumentException("Account opened after account closed. Invalid dates.");
         }
     }
@@ -180,7 +179,7 @@ public class BankAccount {
     /**
      * Returns string representing the bank account details.
      */
-    private String getDetails()
+    public final String getDetails()
     {
         final StringBuilder detailsBuilder;
         final String accountDetails;
@@ -199,13 +198,13 @@ public class BankAccount {
 
         accountNum = "in account #" + accountNumber + " ";
 
-        accountOpenDate = "which he opened " + accountOpened.toString() + " ";
+        accountOpenDate = "which he opened " + accountOpened.getFormattedDate() + " ";
 
         if (accountClosed == null) {
             accountCloseDate = "and is open still.";
         } else
         {
-            accountCloseDate = "and closed " + accountClosed.toString() + ".";
+            accountCloseDate = "and closed " + accountClosed.getFormattedDate() + ".";
         }
 
         detailsBuilder.append(clientName);

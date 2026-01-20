@@ -45,7 +45,7 @@ public class Name {
 
         // Capitalizes the first letter of the last name.
         lastNameFirstLetterCapitalize.append(lastName.toLowerCase());
-        lastNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
+        lastNameFirstLetterCapitalize.setCharAt(0, this.lastInitial);
 
         this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
 
@@ -158,7 +158,7 @@ public class Name {
 
         // Forms the full name.
         nameReverser = new StringBuilder();
-        nameReverser.append(this.firstName);
+        nameReverser.append(this.lastName);
         nameReverser.append(" ");
         nameReverser.append(this.firstName);
 

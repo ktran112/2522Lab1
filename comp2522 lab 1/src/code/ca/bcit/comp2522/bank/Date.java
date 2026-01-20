@@ -437,6 +437,24 @@ public class Date
     }
 
 
+    public final String getFormattedDate()
+    {
+        StringBuilder formatter;
+
+        formatter = new StringBuilder();
+
+        formatter.append(getDayOfTheWeek());
+        formatter.append(", ");
+        formatter.append(getMonth());
+        formatter.append(" ");
+        formatter.append(this.day);
+        formatter.append(", ");
+        formatter.append(this.year);
+
+        return formatter.toString();
+    }
+
+
     private final int getMonthCode()
     {
         if (this.month == JANUARY)
