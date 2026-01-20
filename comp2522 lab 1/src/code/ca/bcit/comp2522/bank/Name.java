@@ -136,7 +136,7 @@ public class Name {
 
     /**
      * Forms the initials of the given name.
-     * @return the full name reversed
+     * @return the full name reverse
      */
     public final String getReverseName()
     {
