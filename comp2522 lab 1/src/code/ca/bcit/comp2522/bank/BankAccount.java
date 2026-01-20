@@ -72,7 +72,8 @@ public class BankAccount {
         final String accountOpenDate;
         final String accountCloseDate;
 
-        clientName = client.getDetails();
+        clientName = client.getName();
+
 
         // amount usd. account number. opened date, closed date.
         //need a getDetails method that retunrs a string excatly in the format:
