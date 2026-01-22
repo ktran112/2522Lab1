@@ -21,8 +21,8 @@ public class Date
     private static final int MIN_MONTH = 1;
     private static final int MAX_MONTH = 12;
     private static final int MIN_DAY = 1;
-    private static final int MAX_DAY_MAXIMAL = 31; // Maximal meaning the max possible amount of days in a month.
-    private static final int MAX_DAY_STANDARD = 30; // Standard meaning the not max possible amount of days in a month.
+    private static final int MAX_DAY_MAXIMAL = 31;      // Maximal meaning the max possible amount of days in a month.
+    private static final int MAX_DAY_STANDARD = 30;     // Standard meaning the not max possible amount of days in a month.
     private static final int MAX_DAY_FEB = 28;
     private static final int MAX_DAY_FEB_LEAP = 29;
     private static final int CENTURY = 100;
@@ -44,6 +44,15 @@ public class Date
     private static final int NOVEMBER = 11;
     private static final int DECEMBER = 12;
 
+    private static final String MONDAY = "Monday";
+    private static final String TUESDAY = "Tuesday";
+    private static final String WEDNESDAY = "Wednesday";
+    private static final String THURSDAY = "Thursday";
+    private static final String FRIDAY = "Friday";
+    private static final String SATURDAY = "Saturday";
+    private static final String SUNDAY = "Sunday";
+
+    // These numbers are necessary for the getDayOfTheWeek() function.
     private static final int JAN_CODE = 1;
     private static final int FEB_CODE = 4;
     private static final int MAR_CODE = 4;
@@ -57,6 +66,7 @@ public class Date
     private static final int NOV_CODE = 4;
     private static final int DEC_CODE = 6;
 
+    // These numbers are necessary for the getDayOfTheWeek() function.
     private static final int MONDAY_CODE = 2;
     private static final int TUESDAY_CODE = 3;
     private static final int WEDNESDAY_CODE = 4;
@@ -65,14 +75,7 @@ public class Date
     private static final int SATURDAY_CODE = 0;
     private static final int SUNDAY_CODE = 1;
 
-    private static final String MONDAY = "Monday";
-    private static final String TUESDAY = "Tuesday";
-    private static final String WEDNESDAY = "Wednesday";
-    private static final String THURSDAY = "Thursday";
-    private static final String FRIDAY = "Friday";
-    private static final String SATURDAY = "Saturday";
-    private static final String SUNDAY = "Sunday";
-
+    // These numbers are necessary for the getDayOfTheWeek() function.
     private static final int EIGHTEENTH_CENTURY_CODE = 2;
     private static final int NINETEENTH_CENTURY_CODE = 0;
     private static final int TWENTIETH_CENTURY_CODE = 6;
@@ -100,9 +103,9 @@ public class Date
      */
     public Date(final int year, final int month, final int day)
     {
-        validateYear(year); // Year cannot be lesser than MIN_YEAR and greater than CURRENT_YEAR.
-        validateMonth(month); // Month cannot be lesser than MIN_MONTH and greater than CURRENT_MONTH.
-        validateDay(day); // Day cannot be lesser than MIN_DAY and greater than the maximum day based off the month.
+        validateYear(year);          // Year cannot be lesser than MIN_YEAR and greater than CURRENT_YEAR.
+        validateMonth(month);        // Month cannot be lesser than MIN_MONTH and greater than CURRENT_MONTH.
+        validateDay(day);            // Day cannot be lesser than MIN_DAY and greater than the maximum day based off the month.
 
         this.year = year;
         this.month = month;
@@ -134,10 +137,10 @@ public class Date
 
     private final void validateDay(final int day)
     {
-        if (day < MIN_DAY || // Checks if day is lesser than the minimum possible day
-            isStandardMonth() && day > MAX_DAY_STANDARD || // Checks if the month is standard and if the day is greater than the possible max
-            isMaximalMonth() && day > MAX_DAY_MAXIMAL || // Checks if the month is maximal and if the day is greater than the possible max
-            this.month == FEBRUARY && day > getFebruaryMaxDay()) // Checks if the month is February and if the day is greater than the possible max
+        if (day < MIN_DAY ||                                            // Checks if day is lesser than the minimum possible day
+            isStandardMonth() && day > MAX_DAY_STANDARD ||              // Checks if the month is standard and if the day is greater than the possible max
+            isMaximalMonth() && day > MAX_DAY_MAXIMAL ||                // Checks if the month is maximal and if the day is greater than the possible max
+            this.month == FEBRUARY && day > getFebruaryMaxDay())        // Checks if the month is February and if the day is greater than the possible max
 
         {
             throw new IllegalArgumentException("Invalid Day");
@@ -351,15 +354,15 @@ public class Date
         final int sumOfTheFormers;
         final int remainderOfSevens;
 
-        centuryCode = getCenturyCode(); // Get the century code for the current year.
+        centuryCode = getCenturyCode();                             // Get the century code for the current year.
 
-        yearLastTwoDigitsOnly = this.year - getNthCentury(); // Take the last two digits of the year.
+        yearLastTwoDigitsOnly = this.year - getNthCentury();        // Take the last two digits of the year.
 
-        quotientOfTwelves = yearLastTwoDigitsOnly / HELPER_TWELVE; // Divide the last two digits by 12 and get the quotient.
+        quotientOfTwelves = yearLastTwoDigitsOnly / HELPER_TWELVE;  // Divide the last two digits by 12 and get the quotient.
 
         remainderOfTwelves = yearLastTwoDigitsOnly % HELPER_TWELVE; // Get the remainder when the last two digits are divided by 12.
 
-        quotientOfFours = remainderOfTwelves / HELPER_FOUR; // Divide the remainder by 4 and get the quotient.
+        quotientOfFours = remainderOfTwelves / HELPER_FOUR;         // Divide the remainder by 4 and get the quotient.
 
         dayOfMonth = this.day;
 
@@ -372,7 +375,7 @@ public class Date
                 + dayOfMonth
                 + monthCode;
 
-        remainderOfSevens = sumOfTheFormers % HELPER_SEVEN; // Calculate the remainder when the sum is divided by 7.
+        remainderOfSevens = sumOfTheFormers % HELPER_SEVEN;          // Calculate the remainder when the sum is divided by 7.
 
         // Match the remainder to the corresponding day of the week.
         if (remainderOfSevens == MONDAY_CODE)

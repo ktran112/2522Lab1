@@ -15,12 +15,15 @@ public class BankClient
     private final String clientID;
 
 
+
     /** This represents the minimum amounts of characters a client ID needs */
     private int MIN_CHARACTER_ID = 6;
 
 
+
     /** This represents the maximum amounts of characters a client ID needs */
     private int MAX_CHARACTER_ID = 7;
+
 
 
     /**
@@ -54,6 +57,7 @@ public class BankClient
     }
 
 
+
     /**
      * Alternative constructor for BankClient object that omits the death date
      * @param fullName first and last name
@@ -70,11 +74,12 @@ public class BankClient
     }
 
 
+
     /* Validator method for full name.
      * Constraints
      * - Cannot be null
      */
-    private final void validateFullName(Name fullName)
+    private final void validateFullName(final Name fullName)
     {
         // Checks if the name of the client is null
         if (fullName == null)
@@ -85,11 +90,12 @@ public class BankClient
     }
 
 
+
     /* Validator method for birthdate.
      * Constraints
      * - Cannot be null
      */
-    private final void validateBirthDate(Date birthDate)
+    private final void validateBirthDate(final Date birthDate)
     {
         // Checks if the birthdate of the client is null
         if (birthDate == null)
@@ -100,13 +106,14 @@ public class BankClient
     }
 
 
+
     /* Validator method for client ID.
      * Constraints
      * - Cannot be null
      * - Cannot be lesser than 6
      * - Cannot be greater than 7
      */
-    private final void validateClientID(String clientID)
+    private final void validateClientID(final String clientID)
     {
         // Checks if the client ID is null or if it does not follow character amount restrictions
         if (clientID == null ||
@@ -119,12 +126,13 @@ public class BankClient
     }
 
 
+
     /*
      * Validator method for signup.
      * Constraints
      * - Cannot be null
      */
-    private final void validateSignupDate(Date signupDate)
+    private final void validateSignupDate(final Date signupDate)
     {
         // Checks if the signup date is null
         if (signupDate == null)
@@ -133,6 +141,7 @@ public class BankClient
             throw new IllegalArgumentException("Signup date is null"); // If the signup date is null, then an error is thrown
         }
     }
+
 
 
     /**
@@ -145,6 +154,7 @@ public class BankClient
     }
 
 
+
     /**
      * Provides the Date object of the death date.
      * @return death date
@@ -153,6 +163,7 @@ public class BankClient
     {
         return this.deathDate;
     }
+
 
 
     /**
@@ -165,6 +176,7 @@ public class BankClient
     }
 
 
+
     /**
      * Provides the client ID.
      * @return client ID
@@ -173,6 +185,7 @@ public class BankClient
     {
         return this.clientID;
     }
+
 
 
     /**
@@ -197,6 +210,7 @@ public class BankClient
 
         return alive;
     }
+
 
 
     /**

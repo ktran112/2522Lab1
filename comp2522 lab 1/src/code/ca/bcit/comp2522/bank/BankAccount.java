@@ -194,7 +194,7 @@ public class BankAccount {
 
         clientName = client.getName().getFullName();
 
-        accountBalance = "had $" + balanceUsd + " USD ";
+        accountBalance = " had $" + balanceUsd + " USD ";
 
         accountNum = "in account #" + accountNumber + " ";
 

@@ -24,7 +24,6 @@ public class Name {
     public Name(final String firstName,
                 final String lastName)
     {
-
         validateFullName(firstName, lastName); // Checks if name violates constraints.
 
         StringBuilder firstNameFirstLetterCapitalize; // This will capitalize the first letter of the first name.
@@ -48,8 +47,8 @@ public class Name {
         lastNameFirstLetterCapitalize.setCharAt(0, this.lastInitial);
 
         this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
-
     }
+
 
 
     /* Validator method for both the first and last name.
@@ -62,7 +61,6 @@ public class Name {
     private final void validateFullName(final String firstName,
                                         final  String lastName)
     {
-
         // Checks if either the first or last names are "admin" or "administrator".
         if (firstName.equalsIgnoreCase("admin") ||
             lastName.equalsIgnoreCase("admin") ||
@@ -90,8 +88,8 @@ public class Name {
         {
             throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
         }
-
     }
+
 
 
     /**
@@ -104,6 +102,7 @@ public class Name {
     }
 
 
+
     /**
      * Returns the first name of the full name.
      * @return the first name
@@ -114,6 +113,7 @@ public class Name {
     }
 
 
+
     /**
      * Returns the last name of the full name.
      * @return the last name
@@ -122,6 +122,7 @@ public class Name {
     {
         return this.lastName;
     }
+
 
 
     /**
@@ -147,6 +148,7 @@ public class Name {
     }
 
 
+
     /**
      * Forms the initials of the given name.
      * @return the full name reverse
@@ -168,6 +170,7 @@ public class Name {
 
         return reversedName;
     }
+
 
     /**
      * Produces a detailed string regarding the name, including first and last name, and its initials.
@@ -194,6 +197,4 @@ public class Name {
 
         return detailParser.toString();
     }
-
-
 }
