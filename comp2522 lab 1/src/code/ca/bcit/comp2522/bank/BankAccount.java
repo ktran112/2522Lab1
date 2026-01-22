@@ -10,15 +10,15 @@ public class BankAccount {
     private double balanceUsd;
     private final String accountNumber;
     private final int pin;
+    private final Date accountOpened;
+    private final Date accountClosed;
+    private final BankClient client;
 
     /** Represents the minimum of characters a BankAccount can have. */
     private final int MIN_ACCOUNT_NUM_LENGTH = 6;
+
     /** Represents the maximum of characters a BankAccount can have. */
     private final int MAX_ACCOUNT_NUM_LENGTH = 7;
-
-    BankClient client;
-    private final Date accountOpened;
-    private final Date accountClosed;
 
     /**
      * Constructor for the BankAccount Object. Acts as a master constructor.
@@ -26,9 +26,13 @@ public class BankAccount {
      * @param accountNumber represents the accountNumber of the bank account.
      * @param accountOpened represents the date the account was opened.
      * @param accountClosed represents the date the account was closed. Null if not closed.
-     * @param pin represents the pin.
+     * @param pin represents the pin to the account.
      */
-    public BankAccount(final BankClient client, final String accountNumber, final Date accountOpened, final Date accountClosed, final int pin)
+    public BankAccount(final BankClient client,
+                       final String accountNumber,
+                       final Date accountOpened,
+                       final Date accountClosed,
+                       final int pin)
     {
         this.client = client;
         this.accountNumber = accountNumber;
@@ -44,7 +48,17 @@ public class BankAccount {
 
     }
 
-    public BankAccount(final BankClient client, final String accountNumber, final Date accountOpened, final int pin)
+    /**
+     * Alternative Constructor for the bankAccount Object, with accountClosed as null.
+     * @param client represents the client of the bank account.
+     * @param accountNumber represents the accountNumber of the bank account.
+     * @param accountOpened represents the date the account was opened.
+     * @param pin represents the pin to the account.
+     */
+    public BankAccount(final BankClient client,
+                       final String accountNumber,
+                       final Date accountOpened,
+                       final int pin)
     {
         this(client, accountNumber, accountOpened, null, pin);
     }
@@ -58,7 +72,6 @@ public class BankAccount {
      */
     private void validatePin(int pin)
     {
-        //the opposite should be here, so I can throw out.
         if (pin >= 9999 || pin <= 1000)
         {
             throw new IllegalArgumentException("Pin not 4 digits; invalid pin."); // Throws error if pin is invalid.
@@ -150,7 +163,8 @@ public class BankAccount {
      * @param amountUsd is the amount in USD to be deposited.
      * @param pinToMatch is the inputted pin
      */
-    public void deposit(final double amountUsd, final int pinToMatch)
+    public void deposit(final double amountUsd,
+                        final int pinToMatch)
     {
         if (pinToMatch == pin || amountUsd >= 0)
         {
@@ -164,7 +178,8 @@ public class BankAccount {
      * @param amountUsd is the balance attempting to be withdrawn.
      * @param pinToMatch is the inputted pin.
      */
-    public void withdraw(final double amountUsd, final int pinToMatch)
+    public void withdraw(final double amountUsd,
+                         final int pinToMatch)
     {
         if (pinToMatch == pin || amountUsd >= 0)
         {
@@ -201,7 +216,7 @@ public class BankAccount {
         accountOpenDate = "which he opened " + accountOpened.getFormattedDate() + " ";
 
         if (accountClosed == null) {
-            accountCloseDate = "and is open still.";
+            accountCloseDate = "to present.";
         } else
         {
             accountCloseDate = "and closed " + accountClosed.getFormattedDate() + ".";
