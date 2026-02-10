@@ -7,24 +7,19 @@ package ca.bcit.comp2522.bank;
  */
 public class BankAccount {
 
+    private static final int MIN_ACCOUNT_NUM_LENGTH = 6;
+    private static final int MAX_ACCOUNT_NUM_LENGTH = 7;
+    private static final int MIN_PIN_NUM = 1000;
+    private static final int MAX_PIN_NUM = 9999;
+    private static final double MIN_WITHDRAW_USD = 0;
+    private static final double MIN_DEPOSIT_USD = 0;
+
     private double balanceUsd;
     private final String accountNumber;
     private final int pin;
     private final Date accountOpened;
     private final Date accountClosed;
     private final BankClient client;
-
-    private static final int MIN_ACCOUNT_NUM_LENGTH = 6;
-
-    private static final int MAX_ACCOUNT_NUM_LENGTH = 7;
-
-    private static final int MIN_PIN_NUM = 1000;
-
-    private static final int MAX_PIN_NUM = 9999;
-
-    private static final double MIN_WITHDRAW_USD = 0;
-
-    private static final double MIN_DEPOSIT_USD = 0;
 
 
 

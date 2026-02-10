@@ -8,10 +8,6 @@ package ca.bcit.comp2522.bank;
 
 public class Date
 {
-    private final int year;
-    private final int month;
-    private final int day;
-
 
     private static final int MIN_YEAR = 1800;
     private static final int EIGHTEENTH_CENTURY = 1800;
@@ -94,6 +90,10 @@ public class Date
     private static final int YYMMDD_FORMATTER = 10;
     private static final int NO_REMAINDER = 0;
 
+
+    private final int year;
+    private final int month;
+    private final int day;
 
     /**
      * This constructs the Date object. Will not create an object if the date is invalid (Does not exist in the Gregorian Calendar).
@@ -286,6 +286,10 @@ public class Date
     }
 
 
+    /**
+     * Checks if the year is a leap year.
+     * @return boolean of if the year is a leap year
+     */
     public final boolean isLeapYear()
     {
         return (this.year % LEAP_YEAR_FOUR_CENTURY_DIVISOR == NO_REMAINDER ||
@@ -295,8 +299,8 @@ public class Date
 
 
     /**
-     * Checks whether the month current month is a maximal month, meaning if the month has the greatest amount of days for a month.
-     * @return
+     * Checks whether the month current month is a standard month, meaning if the month has the second-greatest amount of days for a month.
+     * @return if the month is a standard month
      */
     public final boolean isStandardMonth()
     {
@@ -309,7 +313,7 @@ public class Date
 
     /**
      * Checks whether the month current month is a maximal month, meaning if the month has the greatest amount of days for a month.
-     * @return
+     * @return if the month is a maximal month
      */
     public final boolean isMaximalMonth()
     {

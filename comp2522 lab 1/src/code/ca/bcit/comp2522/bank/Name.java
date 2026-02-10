@@ -7,13 +7,13 @@ package ca.bcit.comp2522.bank;
  */
 public class Name {
 
+    private final int MAX_NAME_LEN = 45;
 
     private final String firstName;
     private final String lastName;
     private final char firstInitial;
     private final char lastInitial;
 
-    private final int MAX_NAME_LEN = 45;
 
 
     /**

@@ -8,21 +8,15 @@ package ca.bcit.comp2522.bank;
  */
 public class BankClient
 {
+
+    private static final int MIN_CHARACTER_ID = 6;
+    private static final int MAX_CHARACTER_ID = 7;
+
     private final Name fullName;
     private final Date birthDate;
     private final Date deathDate;
     private final Date signupDate;
     private final String clientID;
-
-
-
-    /** This represents the minimum amounts of characters a client ID needs */
-    private int MIN_CHARACTER_ID = 6;
-
-
-
-    /** This represents the maximum amounts of characters a client ID needs */
-    private int MAX_CHARACTER_ID = 7;
 
 
 
