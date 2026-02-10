@@ -24,7 +24,6 @@ public class Name {
     public Name(final String firstName,
                 final String lastName)
     {
-
         validateFullName(firstName, lastName); // Checks if name violates constraints.
 
         StringBuilder firstNameFirstLetterCapitalize; // This will capitalize the first letter of the first name.
@@ -45,40 +44,52 @@ public class Name {
 
         // Capitalizes the first letter of the last name.
         lastNameFirstLetterCapitalize.append(lastName.toLowerCase());
-        lastNameFirstLetterCapitalize.setCharAt(0, this.firstInitial);
+        lastNameFirstLetterCapitalize.setCharAt(0, this.lastInitial);
 
         this.lastName = lastNameFirstLetterCapitalize.toString(); // Initializes last name with proper capitalization.
-
     }
+
 
 
     /* Validator method for both the first and last name.
      * Constraints
      * - Cannot have the name "admin" for either the first or last name
      * - Cannot be null for either the first or last name
-     * - Cannot have empty name (empty argument)
+     * - Cannot have Blank name (Blank argument)
      * - Cannot have a name longer then 45 characters
      */
     private final void validateFullName(final String firstName,
                                         final  String lastName)
     {
+        // Checks if either the first or last names are "admin" or "administrator".
+        if (firstName.equalsIgnoreCase("admin") ||
+            lastName.equalsIgnoreCase("admin") ||
+            firstName.equalsIgnoreCase("administrator")||
+            lastName.equalsIgnoreCase("administrator"))
 
-        // Checks if either the first or last names are "admin".
-        if (firstName.equalsIgnoreCase("admin") || lastName.equalsIgnoreCase("admin")) {
-            throw new IllegalArgumentException("Name cannot be admin"); // Throws error if either name is admin.
+        {
+            throw new IllegalArgumentException("Name cannot be admin or administrator"); // Throws error if either name is admin or administrator.
         }
 
-        // Checks if first name is not null or empty.
-        if ((firstName == null || firstName.isEmpty() || firstName.length() > MAX_NAME_LEN)) {
-            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
+        // Checks if first name is not null or Blank.
+        if (firstName == null ||
+            firstName.isBlank() ||
+            firstName.length() > MAX_NAME_LEN)
+
+        {
+            throw new IllegalArgumentException("First name is null or Blank"); // Throws error if first name is null or Blank.
         }
 
-        // Checks if last name is not null or empty.
-        if ((lastName == null || lastName.isEmpty() || lastName.length() > MAX_NAME_LEN)) {
-            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
-        }
+        // Checks if last name is not null or Blank.
+        if (lastName == null ||
+            lastName.isBlank() ||
+            lastName.length() > MAX_NAME_LEN)
 
+        {
+            throw new IllegalArgumentException("Last name is null or Blank"); // Throws error if last name is null or Blank.
+        }
     }
+
 
 
     /**
@@ -91,6 +102,7 @@ public class Name {
     }
 
 
+
     /**
      * Returns the first name of the full name.
      * @return the first name
@@ -101,6 +113,7 @@ public class Name {
     }
 
 
+
     /**
      * Returns the last name of the full name.
      * @return the last name
@@ -109,6 +122,7 @@ public class Name {
     {
         return this.lastName;
     }
+
 
 
     /**
@@ -134,6 +148,7 @@ public class Name {
     }
 
 
+
     /**
      * Forms the initials of the given name.
      * @return the full name reverse
@@ -145,7 +160,7 @@ public class Name {
 
         // Forms the full name.
         nameReverser = new StringBuilder();
-        nameReverser.append(this.firstName);
+        nameReverser.append(this.lastName);
         nameReverser.append(" ");
         nameReverser.append(this.firstName);
 
@@ -157,5 +172,29 @@ public class Name {
     }
 
 
+    /**
+     * Produces a detailed string regarding the name, including first and last name, and its initials.
+     * @return details
+     */
+    public final String getDetails()
+    {
+        StringBuilder detailParser;
+        String firstName;
+        String lastName;
+        String firstInitial;
+        String lastInitial;
 
+        detailParser = new StringBuilder();
+        firstName = "First Name: " + this.firstName;
+        lastName = "\nLast Name: " + this.lastName;
+        firstInitial = "\nFirst Initial: " + this.firstInitial;
+        lastInitial = "\nLast Initial: " + this.lastInitial;
+
+        detailParser.append(firstName);
+        detailParser.append(lastName);
+        detailParser.append(firstInitial);
+        detailParser.append(lastInitial);
+
+        return detailParser.toString();
+    }
 }
