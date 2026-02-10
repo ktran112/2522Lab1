@@ -55,7 +55,7 @@ public class Name {
      * Constraints
      * - Cannot have the name "admin" for either the first or last name
      * - Cannot be null for either the first or last name
-     * - Cannot have empty name (empty argument)
+     * - Cannot have Blank name (Blank argument)
      * - Cannot have a name longer then 45 characters
      */
     private final void validateFullName(final String firstName,
@@ -71,22 +71,22 @@ public class Name {
             throw new IllegalArgumentException("Name cannot be admin or administrator"); // Throws error if either name is admin or administrator.
         }
 
-        // Checks if first name is not null or empty.
+        // Checks if first name is not null or Blank.
         if (firstName == null ||
-            firstName.isEmpty() ||
+            firstName.isBlank() ||
             firstName.length() > MAX_NAME_LEN)
 
         {
-            throw new IllegalArgumentException("First name is null or empty"); // Throws error if first name is null or empty.
+            throw new IllegalArgumentException("First name is null or Blank"); // Throws error if first name is null or Blank.
         }
 
-        // Checks if last name is not null or empty.
+        // Checks if last name is not null or Blank.
         if (lastName == null ||
-            lastName.isEmpty() ||
+            lastName.isBlank() ||
             lastName.length() > MAX_NAME_LEN)
 
         {
-            throw new IllegalArgumentException("Last name is null or empty"); // Throws error if last name is null or empty.
+            throw new IllegalArgumentException("Last name is null or Blank"); // Throws error if last name is null or Blank.
         }
     }
 

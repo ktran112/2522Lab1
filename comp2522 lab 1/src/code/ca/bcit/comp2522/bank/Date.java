@@ -80,19 +80,19 @@ public class Date
     private static final int NINETEENTH_CENTURY_CODE = 0;
     private static final int TWENTIETH_CENTURY_CODE = 6;
 
-    // This refers to the fact that most years that are multiples of 4 are leap years
     private static final int LEAP_YEAR_DIVISOR = 4;
 
     /*
      * "Century Exemption" refers to the fact that every turn of the century (Ex. 1800, 1900)
-     * that is also NOT a multiple of 400 is NOT a leap year.
+     * is not a leap year
      */
     private static final int LEAP_YEAR_CENTURY_EXEMPTION = 100;
 
     // "Four Century Divisor" refers to the fact that for every year that is a multiple of 400 is a leap year.
     private static final int LEAP_YEAR_FOUR_CENTURY_DIVISOR = 400;
 
-
+    private static final int YYMMDD_FORMATTER = 10;
+    private static final int NO_REMAINDER = 0;
 
 
     /**
@@ -119,7 +119,7 @@ public class Date
             year > CURRENT_YEAR)
 
         {
-            throw new IllegalArgumentException("Invalid year.");
+            throw new IllegalArgumentException("Invalid year: " + year);
         }
     }
 
@@ -130,7 +130,7 @@ public class Date
             month > MAX_MONTH)
 
         {
-            throw new IllegalArgumentException("Invalid month.");
+            throw new IllegalArgumentException("Invalid month: " + month);
         }
     }
 
@@ -143,7 +143,7 @@ public class Date
             this.month == FEBRUARY && day > getFebruaryMaxDay())        // Checks if the month is February and if the day is greater than the possible max
 
         {
-            throw new IllegalArgumentException("Invalid Day");
+            throw new IllegalArgumentException("Invalid Day: " + day);
         }
     }
 
@@ -277,7 +277,7 @@ public class Date
 
 
     /**
-     * Provides the day.
+     * Provides the day of the month.
      * @return day
      */
     public final int getDay()
@@ -288,11 +288,16 @@ public class Date
 
     public final boolean isLeapYear()
     {
-        return (this.year % LEAP_YEAR_FOUR_CENTURY_DIVISOR == 0 ||
-                this.year % LEAP_YEAR_DIVISOR == 0 && this.year % LEAP_YEAR_CENTURY_EXEMPTION != 0);
+        return (this.year % LEAP_YEAR_FOUR_CENTURY_DIVISOR == NO_REMAINDER ||
+                this.year % LEAP_YEAR_DIVISOR == NO_REMAINDER &&
+                this.year % LEAP_YEAR_CENTURY_EXEMPTION != NO_REMAINDER);
     }
 
 
+    /**
+     * Checks whether the month current month is a maximal month, meaning if the month has the greatest amount of days for a month.
+     * @return
+     */
     public final boolean isStandardMonth()
     {
         return (this.month == APRIL ||
@@ -302,6 +307,10 @@ public class Date
     }
 
 
+    /**
+     * Checks whether the month current month is a maximal month, meaning if the month has the greatest amount of days for a month.
+     * @return
+     */
     public final boolean isMaximalMonth()
     {
         return !isStandardMonth() && this.month != FEBRUARY;
@@ -317,7 +326,8 @@ public class Date
         String YYYYMMDD;
         String MM;
         String DD;
-        if (month < 10)
+
+        if (month < YYMMDD_FORMATTER)
         {
             MM = "0" + month;
 
@@ -325,7 +335,7 @@ public class Date
             MM = "" + month;
         }
 
-        if (day < 10)
+        if (day < YYMMDD_FORMATTER)
         {
             DD = "0" + day;
         }
@@ -439,7 +449,10 @@ public class Date
         }
     }
 
-
+    /**
+     * Provides a date formatted in: weekday, month day, year.
+     * @return formatted date
+     */
     public final String getFormattedDate()
     {
         StringBuilder formatter;
@@ -564,7 +577,8 @@ public class Date
 
     private final int getCenturyCode()
     {
-        if (this.year - EIGHTEENTH_CENTURY < CENTURY && this.year - EIGHTEENTH_CENTURY >= 0)
+        if (this.year - EIGHTEENTH_CENTURY < CENTURY &&
+            this.year - EIGHTEENTH_CENTURY >= 0)
 
         {
             return EIGHTEENTH_CENTURY_CODE;
@@ -572,7 +586,8 @@ public class Date
 
         else
 
-        if (this.year - NINETEENTH_CENTURY < CENTURY && this.year - NINETEENTH_CENTURY >= 0)
+        if (this.year - NINETEENTH_CENTURY < CENTURY &&
+            this.year - NINETEENTH_CENTURY >= 0)
 
         {
             return NINETEENTH_CENTURY_CODE;
@@ -580,7 +595,8 @@ public class Date
 
         else
 
-        if (this.year - TWENTIETH_CENTURY < CENTURY && this.year - TWENTIETH_CENTURY >= 0)
+        if (this.year - TWENTIETH_CENTURY < CENTURY &&
+            this.year - TWENTIETH_CENTURY >= 0)
 
         {
             return TWENTIETH_CENTURY_CODE;
@@ -596,7 +612,8 @@ public class Date
 
     private final int getNthCentury()
     {
-        if (this.year - EIGHTEENTH_CENTURY < CENTURY && this.year - EIGHTEENTH_CENTURY >= 0)
+        if (this.year - EIGHTEENTH_CENTURY < CENTURY &&
+            this.year - EIGHTEENTH_CENTURY >= 0)
 
         {
             return EIGHTEENTH_CENTURY;
@@ -604,7 +621,8 @@ public class Date
 
         else
 
-        if (this.year - NINETEENTH_CENTURY < CENTURY && this.year - NINETEENTH_CENTURY >= 0)
+        if (this.year - NINETEENTH_CENTURY < CENTURY &&
+            this.year - NINETEENTH_CENTURY >= 0)
 
         {
             return NINETEENTH_CENTURY;
@@ -612,7 +630,8 @@ public class Date
 
         else
 
-        if (this.year - TWENTIETH_CENTURY < CENTURY && this.year - TWENTIETH_CENTURY >= 0)
+        if (this.year - TWENTIETH_CENTURY < CENTURY &&
+            this.year - TWENTIETH_CENTURY >= 0)
 
         {
             return TWENTIETH_CENTURY;
