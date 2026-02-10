@@ -2,13 +2,14 @@ package ca.bcit.comp2522.bank;
 
 /**
  * Represents dates from the Gregorian calendar, including the name of the weekday and date constraints.
- * @author Umanga Bagai and Kiet Tran
+ *
+ * @author Umanga Bagai
+ * @author Kiet Tran
+ *
  * @version 1.0
  */
-
 public class Date
 {
-
     private static final int MIN_YEAR = 1800;
     private static final int EIGHTEENTH_CENTURY = 1800;
     private static final int NINETEENTH_CENTURY = 1900;
@@ -16,15 +17,16 @@ public class Date
     private static final int CURRENT_YEAR = 2026;
     private static final int MIN_MONTH = 1;
     private static final int MAX_MONTH = 12;
+
     private static final int MIN_DAY = 1;
-    private static final int MAX_DAY_MAXIMAL = 31;      // Maximal meaning the max possible amount of days in a month.
-    private static final int MAX_DAY_STANDARD = 30;     // Standard meaning the not max possible amount of days in a month.
+    private static final int MAX_DAYS_IN_MONTH = 31;
+    private static final int STANDARD_DAYS_IN_MONTH = 30;
     private static final int MAX_DAY_FEB = 28;
     private static final int MAX_DAY_FEB_LEAP = 29;
     private static final int CENTURY = 100;
 
-    private static final int HELPER_TWELVE = 12;
-    private static final int HELPER_SEVEN = 7;
+    private static final int MONTHS_IN_YEAR = 12;
+    private static final int DAYS_IN_WEEK = 7;
     private static final int HELPER_FOUR = 4;
 
     private static final int JANUARY = 1;
@@ -90,7 +92,6 @@ public class Date
     private static final int YYMMDD_FORMATTER = 10;
     private static final int NO_REMAINDER = 0;
 
-
     private final int year;
     private final int month;
     private final int day;
@@ -101,9 +102,11 @@ public class Date
      * @param month the month
      * @param day the day
      */
-    public Date(final int year, final int month, final int day)
+    public Date(final int year,
+                final int month,
+                final int day)
     {
-        validateYear(year);          // Year cannot be lesser than MIN_YEAR and greater than CURRENT_YEAR.
+        validateYear(year);
         validateMonth(month);        // Month cannot be lesser than MIN_MONTH and greater than CURRENT_MONTH.
         validateDay(day);            // Day cannot be lesser than MIN_DAY and greater than the maximum day based off the month.
 
@@ -112,7 +115,12 @@ public class Date
         this.day = day;
     }
 
-
+    /*
+     * Validator method for year.
+     * Constraints
+     * - Year cannot be lesser than minimum year
+     * - Year cannot be greater than maximum year
+     */
     private final void validateYear(final int year)
     {
         if (year < MIN_YEAR ||
@@ -123,7 +131,12 @@ public class Date
         }
     }
 
-
+    /*
+     * Validator method for month.
+     * Constraints
+     * - Month cannot be lesser than minimum month
+     * - Month cannot be greater than maximum month
+     */
     private final void validateMonth(final int month)
     {
         if (month < MIN_MONTH ||
@@ -134,19 +147,24 @@ public class Date
         }
     }
 
-
+    /*
+     * Validator method for day.
+     * Constraints
+     * - Day cannot be lesser than minimum day
+     * - Day cannot be greater than maximum day
+     * - If February, cannot be greater than February's max day
+     */
     private final void validateDay(final int day)
     {
-        if (day < MIN_DAY ||                                            // Checks if day is lesser than the minimum possible day
-            isStandardMonth() && day > MAX_DAY_STANDARD ||              // Checks if the month is standard and if the day is greater than the possible max
-            isMaximalMonth() && day > MAX_DAY_MAXIMAL ||                // Checks if the month is maximal and if the day is greater than the possible max
-            this.month == FEBRUARY && day > getFebruaryMaxDay())        // Checks if the month is February and if the day is greater than the possible max
+        if (day < MIN_DAY ||
+            isStandardMonth() && day > STANDARD_DAYS_IN_MONTH ||
+            isMaximalMonth() && day > MAX_DAYS_IN_MONTH ||
+            this.month == FEBRUARY && day > getFebruaryMaxDay())
 
         {
             throw new IllegalArgumentException("Invalid Day: " + day);
         }
     }
-
 
     /**
      * Provides the year.
@@ -157,7 +175,6 @@ public class Date
         return this.year;
     }
 
-
     /**
      * Provides the month in its numerical value.
      * @return month as a number
@@ -166,8 +183,7 @@ public class Date
     {
         return this.month;
     }
-
-
+    
     /**
      * Provides the month as its name
      * @return month name
@@ -275,7 +291,6 @@ public class Date
         }
     }
 
-
     /**
      * Provides the day of the month.
      * @return day
@@ -296,8 +311,7 @@ public class Date
                 this.year % LEAP_YEAR_DIVISOR == NO_REMAINDER &&
                 this.year % LEAP_YEAR_CENTURY_EXEMPTION != NO_REMAINDER);
     }
-
-
+    
     /**
      * Checks whether the month current month is a standard month, meaning if the month has the second-greatest amount of days for a month.
      * @return if the month is a standard month
@@ -309,8 +323,7 @@ public class Date
                 this.month == SEPTEMBER ||
                 this.month == NOVEMBER);
     }
-
-
+    
     /**
      * Checks whether the month current month is a maximal month, meaning if the month has the greatest amount of days for a month.
      * @return if the month is a maximal month
@@ -319,8 +332,7 @@ public class Date
     {
         return !isStandardMonth() && this.month != FEBRUARY;
     }
-
-
+    
     /**
      * Provides a string version of the full date in YYYY-MM-DD format
      * @return formatted date
@@ -350,7 +362,6 @@ public class Date
         return YYYYMMDD;
     }
 
-
     /**
      * Provides the day of the week.
      * @return day of the week
@@ -372,9 +383,9 @@ public class Date
 
         yearLastTwoDigitsOnly = this.year - getNthCentury();        // Take the last two digits of the year.
 
-        quotientOfTwelves = yearLastTwoDigitsOnly / HELPER_TWELVE;  // Divide the last two digits by 12 and get the quotient.
+        quotientOfTwelves = yearLastTwoDigitsOnly / MONTHS_IN_YEAR;  // Divide the last two digits by months of the year and get the quotient.
 
-        remainderOfTwelves = yearLastTwoDigitsOnly % HELPER_TWELVE; // Get the remainder when the last two digits are divided by 12.
+        remainderOfTwelves = yearLastTwoDigitsOnly % MONTHS_IN_YEAR; // Get the remainder when the last two digits are divided by months of the year.
 
         quotientOfFours = remainderOfTwelves / HELPER_FOUR;         // Divide the remainder by 4 and get the quotient.
 
@@ -389,7 +400,7 @@ public class Date
                 + dayOfMonth
                 + monthCode;
 
-        remainderOfSevens = sumOfTheFormers % HELPER_SEVEN;          // Calculate the remainder when the sum is divided by 7.
+        remainderOfSevens = sumOfTheFormers % DAYS_IN_WEEK;          // Calculate the remainder when the sum is divided by 7.
 
         // Match the remainder to the corresponding day of the week.
         if (remainderOfSevens == MONDAY_CODE)
@@ -473,8 +484,7 @@ public class Date
 
         return formatter.toString();
     }
-
-
+    
     private final int getMonthCode()
     {
         if (this.month == JANUARY)
@@ -578,7 +588,6 @@ public class Date
         }
     }
 
-
     private final int getCenturyCode()
     {
         if (this.year - EIGHTEENTH_CENTURY < CENTURY &&
@@ -613,7 +622,6 @@ public class Date
         }
     }
 
-
     private final int getNthCentury()
     {
         if (this.year - EIGHTEENTH_CENTURY < CENTURY &&
@@ -647,7 +655,6 @@ public class Date
             throw new IllegalStateException("Year range is invalid. Cannot provide century.");
         }
     }
-
 
     private final int getFebruaryMaxDay()
     {

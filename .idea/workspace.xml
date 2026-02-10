@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d07d8dc9-e78c-48c0-a49e-c99c2b664753" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" afterDir="false" />
+    </list>
+    <list id="31dba874-8c04-4011-bab8-4eed6b7e2679" name="Changes by umang" comment="">
+      <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +37,73 @@
     &quot;accountId&quot;: &quot;5f3ae577-cc27-4799-8360-fcb138ff737c&quot;
   }
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java">
+      <ranges>
+        <range start1="2" end1="3" start2="2" end2="3" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="4" end1="4" start2="4" end2="5" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="5" end1="5" start2="6" end2="8" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="9" end1="10" start2="12" end2="13" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="16" end1="18" start2="19" end2="19" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="19" end1="22" start2="20" end2="23" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="26" end1="27" start2="27" end2="28" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="28" end1="30" start2="29" end2="31" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="34" end1="35" start2="35" end2="36" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="36" end1="37" start2="37" end2="37" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="42" end1="43" start2="42" end2="43" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="44" end1="45" start2="44" end2="44" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="50" end1="52" start2="49" end2="49" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="53" end1="54" start2="50" end2="52" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="63" end1="64" start2="61" end2="61" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="70" end1="71" start2="67" end2="68" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="73" end1="74" start2="70" end2="70" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="79" end1="80" start2="75" end2="76" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="82" end1="83" start2="78" end2="78" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="88" end1="89" start2="83" end2="84" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="92" end1="94" start2="87" end2="87" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="96" end1="97" start2="89" end2="90" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="102" end1="104" start2="95" end2="95" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="107" end1="108" start2="98" end2="99" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="113" end1="115" start2="104" end2="104" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="118" end1="119" start2="107" end2="108" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="124" end1="126" start2="113" end2="113" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="133" end1="134" start2="120" end2="121" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="138" end1="139" start2="125" end2="125" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="149" end1="151" start2="135" end2="135" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="157" end1="158" start2="141" end2="142" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="160" end1="161" start2="144" end2="144" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="166" end1="167" start2="149" end2="150" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="173" end1="174" start2="156" end2="156" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="5" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="5" end1="5" start2="6" end2="8" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="15" end1="15" start2="18" end2="20" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="70" end1="71" start2="75" end2="76" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="78" end1="79" start2="83" end2="85" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="80" end1="81" start2="86" end2="87" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="85" end1="86" start2="91" end2="92" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="89" end1="90" start2="95" end2="96" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="93" end1="94" start2="99" end2="100" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="98" end1="99" start2="104" end2="105" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="108" end1="109" start2="114" end2="115" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="110" end1="111" start2="116" end2="118" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="115" end1="116" start2="122" end2="123" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="124" end1="125" start2="131" end2="133" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="129" end1="130" start2="137" end2="138" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="132" end1="133" start2="140" end2="144" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="136" end1="137" start2="147" end2="148" changelist="d07d8dc9-e78c-48c0-a49e-c99c2b664753" />
+        <range start1="146" end1="147" start2="157" end2="158" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="157" end1="158" start2="168" end2="170" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="172" end1="173" start2="184" end2="186" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="187" end1="188" start2="200" end2="202" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+        <range start1="221" end1="222" start2="235" end2="237" changelist="31dba874-8c04-4011-bab8-4eed6b7e2679" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -38,18 +112,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kiet4&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kiet/Documents/MEGA/2Term/OOPJava/lab1/2522Lab1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "kiet4",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Kiet/Documents/MEGA/2Term/OOPJava/lab1/2522Lab1",
+    "settings.editor.selected.configurable": "Errors"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.bcit.comp2522.bank.Main" />

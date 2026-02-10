@@ -34,19 +34,16 @@ public class BankClient
                       final Date signupDate,
                       final String clientID)
     {
-        // Validator methods.
-        validateFullName(fullName); // Cannot be null
-        validateBirthDate(birthDate); // Cannot be null
-        validateSignupDate(signupDate); // Cannot be null
-        validateClientID(clientID); // Cannot be null or outside the bounds between MIN_CHARACTER_ID and MAX_CHARACTER ID (inclusive)
+        validateFullName(fullName);
+        validateBirthDate(birthDate);
+        validateSignupDate(signupDate);
+        validateClientID(clientID);
 
-        // Initialization after validation is successful.
         this.fullName = fullName;
         this.birthDate = birthDate;
         this.signupDate = signupDate;
         this.clientID = clientID;
 
-        // Death date is allowed to be null, as everyone has not died yet
         this.deathDate = deathDate;
     }
 
@@ -72,6 +69,7 @@ public class BankClient
     /* Validator method for full name.
      * Constraints
      * - Cannot be null
+     * @param fullName the name to be validated
      */
     private final void validateFullName(final Name fullName)
     {
@@ -88,6 +86,7 @@ public class BankClient
     /* Validator method for birthdate.
      * Constraints
      * - Cannot be null
+     * @param birthDate birth date to be validated
      */
     private final void validateBirthDate(final Date birthDate)
     {
@@ -106,6 +105,7 @@ public class BankClient
      * - Cannot be null
      * - Cannot be lesser than 6
      * - Cannot be greater than 7
+     * @param clientID the client ID to be validated
      */
     private final void validateClientID(final String clientID)
     {
@@ -125,6 +125,7 @@ public class BankClient
      * Validator method for signup.
      * Constraints
      * - Cannot be null
+     * @param signupDate the signup date to be validated
      */
     private final void validateSignupDate(final Date signupDate)
     {
@@ -147,8 +148,6 @@ public class BankClient
         return this.fullName;
     }
 
-
-
     /**
      * Provides the Date object of the death date.
      * @return death date
@@ -157,8 +156,6 @@ public class BankClient
     {
         return this.deathDate;
     }
-
-
 
     /**
      * Provides the Date object of the signup date.
@@ -170,6 +167,10 @@ public class BankClient
     }
 
 
+    public final Date getBirthDate()
+    {
+        return this.birthDate;
+    }
 
     /**
      * Provides the client ID.
@@ -179,8 +180,6 @@ public class BankClient
     {
         return this.clientID;
     }
-
-
 
     /**
      * Checks whether the client is still alive.
@@ -205,8 +204,6 @@ public class BankClient
         return alive;
     }
 
-
-
     /**
      * Creates a statement regarding the client's name, mortality status, and signup date.
      * @return full statement
@@ -221,7 +218,6 @@ public class BankClient
         final String fullStatement;
 
         statementParser = new StringBuilder();
-
 
         fullName = this.fullName.getFullName();
 

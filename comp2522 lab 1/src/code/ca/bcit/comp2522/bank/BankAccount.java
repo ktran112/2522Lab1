@@ -2,7 +2,10 @@ package ca.bcit.comp2522.bank;
 
 /**
  * BankAccount class represents a bank account.
+ *
  * @author Umanga Bagai
+ * @author Kiet Tran
+ *
  * @version 1.0
  */
 public class BankAccount {
@@ -13,6 +16,8 @@ public class BankAccount {
     private static final int MAX_PIN_NUM = 9999;
     private static final double MIN_WITHDRAW_USD = 0;
     private static final double MIN_DEPOSIT_USD = 0;
+    private static final int INVALID_ACCOUNT_DELETION_DATE = 0;
+    private static final int INVALID_ACCOUNT_CREATION_DATE = 0;
 
     private double balanceUsd;
     private final String accountNumber;
@@ -68,7 +73,7 @@ public class BankAccount {
     }
 
 
-    /**
+    /*
      * Validator or the pin.
      * Constraints:
      *  - Cannot be Null
@@ -76,27 +81,28 @@ public class BankAccount {
      */
     private void validatePin(int pin)
     {
-        if (pin >= MAX_PIN_NUM || pin <= MIN_PIN_NUM)
+        if (pin >= MAX_PIN_NUM ||
+            pin <= MIN_PIN_NUM)
         {
-            throw new IllegalArgumentException("Pin not 4 digits; invalid pin."); // Throws error if pin is invalid.
+            throw new IllegalArgumentException("Pin not within valid digit range; Invalid pin.");
         }
 
     }
 
-    /**
+    /*
      * Validates accountClosed date.
      * Constraints:
      *  - Cannot be before the account was opened.
-     * @param accountClosed is the date the account was closed.
+     * @param accountClosed is the date the account was closed, if it was closed.
      * @param accountOpened is the date that the account was opened.
      */
     private void validateAccountClosed(Date accountClosed, Date accountOpened) {
-        if (accountClosed != null && accountClosed.getYYYYMMDD().compareTo(accountOpened.getYYYYMMDD()) < 0) {
+        if (accountClosed.getYYYYMMDD().compareTo(accountOpened.getYYYYMMDD()) < INVALID_ACCOUNT_DELETION_DATE) {
             throw new IllegalArgumentException("Account closed before account opened. Invalid dates.");
         }
     }
 
-    /**
+    /*
      * Validates accountOpened date.
      * Constraints
      *  - Cannot be Null.
@@ -106,14 +112,15 @@ public class BankAccount {
      */
     private void validateAccountOpened(Date accountOpened, Date accountClosed) {
         if (accountOpened == null) {
-            throw new IllegalArgumentException("accountOpened date cannot be null");
+            throw new IllegalArgumentException("AccountOpened date cannot be null");
         } else
-        if (accountClosed != null && accountOpened.getYYYYMMDD().compareTo(accountClosed.getYYYYMMDD()) > 0) {
+        if (accountClosed != null &&
+                accountOpened.getYYYYMMDD().compareTo(accountClosed.getYYYYMMDD()) > INVALID_ACCOUNT_CREATION_DATE) {
             throw new IllegalArgumentException("Account opened after account closed. Invalid dates.");
         }
     }
 
-    /**
+    /*
      * Validates Account number.
      * Constraints
      *  - Cannot be null.
@@ -122,19 +129,23 @@ public class BankAccount {
      */
     private void validateAccountNumber(final String accountNumber)
     {
-        if (accountNumber == null) {
+        if (accountNumber == null)
+        {
             throw new IllegalArgumentException("Account Number cannot be null.");
         }
 
         if (!(accountNumber.length() == MIN_ACCOUNT_NUM_LENGTH) &&
-                !(accountNumber.length() == MAX_ACCOUNT_NUM_LENGTH) )
+            !(accountNumber.length() == MAX_ACCOUNT_NUM_LENGTH))
         {
             throw new IllegalArgumentException("Account Number is not within" +
-                    MIN_ACCOUNT_NUM_LENGTH + " to " + MAX_ACCOUNT_NUM_LENGTH + "."); //Throws error if the account number length doesn't match the format.
+                    MIN_ACCOUNT_NUM_LENGTH +
+                    " to " +
+                    MAX_ACCOUNT_NUM_LENGTH
+                    + ".");
         }
     }
 
-    /**
+    /*
      * Validates the bankClient.
      * Constraints
      *  - cannot be null.
@@ -144,7 +155,7 @@ public class BankAccount {
     {
         if (client == null)
         {
-            throw new IllegalArgumentException("Bank client does not exist."); //Throws error if bank client doesn't exist.
+            throw new IllegalArgumentException("Bank client does not exist.");
         }
     }
 
@@ -155,7 +166,8 @@ public class BankAccount {
 
     public void withdraw(final double amountUsd)
     {
-        if (balanceUsd >= amountUsd  || amountUsd >= MIN_WITHDRAW_USD)
+        if (balanceUsd >= amountUsd  ||
+                amountUsd >= MIN_WITHDRAW_USD)
         {
             balanceUsd -= amountUsd;
         }
@@ -170,7 +182,8 @@ public class BankAccount {
     public void deposit(final double amountUsd,
                         final int pinToMatch)
     {
-        if (pinToMatch == pin || amountUsd >= MIN_DEPOSIT_USD)
+        if (pinToMatch == pin ||
+                amountUsd >= MIN_DEPOSIT_USD)
         {
             balanceUsd += amountUsd;
         }
@@ -185,7 +198,8 @@ public class BankAccount {
     public void withdraw(final double amountUsd,
                          final int pinToMatch)
     {
-        if (pinToMatch == pin || amountUsd >= MIN_WITHDRAW_USD)
+        if (pinToMatch == pin ||
+            amountUsd >= MIN_WITHDRAW_USD)
         {
             if (balanceUsd >= amountUsd)
             {
@@ -219,7 +233,8 @@ public class BankAccount {
 
         accountOpenDate = "which he opened " + accountOpened.getFormattedDate() + " ";
 
-        if (accountClosed == null) {
+        if (accountClosed == null)
+        {
             accountCloseDate = "to present.";
         } else
         {
